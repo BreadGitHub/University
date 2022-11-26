@@ -6,4 +6,4 @@ def func(N):
     for i in range(0,N+1):
         sum = i**3
         print(sum)
-func(N = input("How many namubers?:"))
+func(N = int(input("How many namubers?:")))
