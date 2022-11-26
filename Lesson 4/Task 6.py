@@ -8,4 +8,4 @@ def func(N):
     for i in range(1,N+1):
         sum *= i
     print(sum)
-func(N = input("How many numbers?:"))
+func(N = int(input("How many numbers?:")))
