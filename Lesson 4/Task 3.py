@@ -1,4 +1,4 @@
-def func(A,B)
+def func(A,B):
     #  A > B!!!
     for i in range(A%2, B-1):
         print(i)
