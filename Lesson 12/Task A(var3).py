@@ -5,4 +5,4 @@ def reverse(n):
     else:
         return ''
         
-print(reverse(453))
+print(reverse(453)) #Выводит 354
