@@ -6,4 +6,5 @@ def order(n):
         else:
             order(n-1)
 
-order(10)
+order(10) #Выводит 9 7 5 3 1 (сверху вниз)
+                    
