@@ -1,7 +1,8 @@
 import requests
 from bs4 import BeautifulSoup
 import os
-
+from argparse import ArgumentParser
+import sys
 session = requests.Session()
 headers = {
     'User-Agent': 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/109.0.0.0 Safari/537.36'
@@ -40,6 +41,31 @@ url = f'https://rutracker.org/forum/tracker.php?nm={seek}'
 response = requests.get(url, headers=headers, proxies=proxies, verify=False).text
 soup = BeautifulSoup(response, 'html.parser')
 print(soup.find_all('tr', class_='tCenter')[2])
+
+def argument_parser():
+    parser = ArgumentParser(description="Search and download torrents on the rutracker.org")
+    parser.add_argument('name', metavar='SEARCH')
+    parser.add_argument('-c', '--count', default=5, type=int)
+    group = parser.add_mutually_exclusive_group()
+    group.add_argument('--no-download', action='store_false')
+    group.add_argument('--no-run-torrent', action='store_false')
+
+    return parser
+
+def input_rutracker_id(max_result):
+    try:
+        rutracker_id = int(input('Dowload ID: '))
+    except ValueError:
+        print ('ERROR:', "That was not a valid number\n")
+        sys.exit(1)
+
+    if rutracker_id > max_result:
+        print("ERROR: Values for downloading should be less than the total number\n")
+        sys.exit(1)
+
+    return rutracker_id
+
+
 
 
 thisFile = "file.html"
