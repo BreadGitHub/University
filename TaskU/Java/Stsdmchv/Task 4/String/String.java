@@ -1,16 +1,19 @@
-public class String 
-{
-    public String(java.lang.String string) {
-    }
-
+public class strcount {
     public static void main(String[] args)
     {
-        java.lang.String string = "Java";
-        java.lang.String substring = "va";
-        System.out.println(string.toLowerCase().contains(substring.toLowerCase()));
+    int i = 1;
+    int j = 1;
+    String symbol = "a";
+    String[] alfabet = {"a","b","c","d","e","f","g","h","i","j","k","l","m","n","o","p","q","r","s","t","u","v","w","x","y","z"};
+    String text = "Hello Stas";
+    text = text.toLowerCase();
+    while(i<(alfabet.length-1))
+    {
+        System.out.print(symbol + "-");        
+        System.out.println((text + "\0").split(symbol).length - 1);        
+        symbol = alfabet[j];
+        j++;
+        i++;    
     }
-
-    public Object endsWith(java.lang.String string) {
-        return null;
-    }
+    }    
 }
